@@ -13,8 +13,18 @@ class CharactersController < ApplicationController
         #INDEX
         #make a get request to '/characters'
 
+        get '/characters' do
+            @characters = Character.all
+            erb :'characters/index'
+        end
+
         #SHOW
         #make a get request to '/characters/:id'
+
+        get '/characters/:id' do
+            erb :'characters/show'
+
+        end
 
     #UPDATE
 
