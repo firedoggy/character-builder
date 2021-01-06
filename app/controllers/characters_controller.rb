@@ -4,10 +4,19 @@ class CharactersController < ApplicationController
 
         #NEW
         #make a get request to '/characters/new'
-
+        get '/characters/new' do
+            erb :'/characters/new'
+        end
         #CREATE
         #make a post request to '/characters'
-
+        post '/characters' do
+            character = Character.new(params)
+            if character.save
+                redirect '/characters'
+            else
+                erb :'/characters/new'
+            end
+        end
     #READ
 
         #INDEX
@@ -22,8 +31,8 @@ class CharactersController < ApplicationController
         #make a get request to '/characters/:id'
 
         get '/characters/:id' do
+            @character = Character.find(params["id"])
             erb :'characters/show'
-
         end
 
     #UPDATE

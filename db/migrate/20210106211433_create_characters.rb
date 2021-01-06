@@ -6,6 +6,7 @@ class CreateCharacters < ActiveRecord::Migration
       t.integer :age
       t.string :race
       t.string :theme
-      t.string :class
+      t.string :clas
+    end
   end
 end
