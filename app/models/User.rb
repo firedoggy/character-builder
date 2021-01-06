@@ -1,5 +1,6 @@
-class User
-
+class User < ActiveRecord::Base
+    has_many :characters
+    
     attr_accessor :username, :password
     @@all = []
 

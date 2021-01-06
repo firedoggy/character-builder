@@ -1,4 +1,5 @@
-class Character
+class Character < ActiveRecord::Base
+    belongs_to :user
 
     attr_accessor :name, :race, :theme, :clas, :bio
     @@all = []
