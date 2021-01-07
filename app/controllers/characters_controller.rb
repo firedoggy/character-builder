@@ -51,8 +51,8 @@ class CharactersController < ApplicationController
 
         patch '/characters/:id' do
             character = Character.find(params[:id])
-            if character.fullVariables 
-                character.update
+            if character.fullVariables
+                character.update(params["character"].to_h)
                 redirect '/characters'
             else
                 @error = "Data invalid. Please try again."
@@ -66,7 +66,9 @@ class CharactersController < ApplicationController
         #make a delete request to '/characters/:id' 
 
         delete '/characters/:id' do
-
+            character = Character.find(params[:id])
+            character.destroy
+            redirect '/characters'
         end
 
 end
