@@ -65,4 +65,8 @@ class CharactersController < ApplicationController
         #DESTROY
         #make a delete request to '/characters/:id' 
 
+        delete '/characters/:id' do
+
+        end
+
 end
