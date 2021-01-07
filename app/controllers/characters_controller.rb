@@ -11,9 +11,11 @@ class CharactersController < ApplicationController
         #make a post request to '/characters'
         post '/characters' do
             character = Character.new(params)
-            if character.save
+            if character.fullVariables  
+                character.save
                 redirect '/characters'
             else
+                @error = "Data invalid. Please try again."
                 erb :'/characters/new'
             end
         end
@@ -31,7 +33,7 @@ class CharactersController < ApplicationController
         #make a get request to '/characters/:id'
 
         get '/characters/:id' do
-            @character = Character.find(params["id"])
+            @character = Character.find(params[:id])
             erb :'characters/show'
         end
 
@@ -39,9 +41,24 @@ class CharactersController < ApplicationController
 
         #EDIT
         #make a get request to '/characters/:id/edit'
+        get '/characters/:id/edit' do
+            @character = Character.find(params[:id])
+            erb :'/characters/edit'
+        end
 
         #UPDATE
         #make a patch request to '/characters/:id'
+
+        patch '/characters/:id' do
+            character = Character.find(params[:id])
+            if character.fullVariables 
+                character.update
+                redirect '/characters'
+            else
+                @error = "Data invalid. Please try again."
+                erb :'/characters/edit'
+            end
+        end
 
     #DESTROY
 

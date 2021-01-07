@@ -1,19 +1,19 @@
-<h1>Create a Character</h1>
-    <form action='/characters' method='post'>
+<h1>Edit <%= @character.name %></h1>
+    <p><%= @error %></p>
+    <form action='/characters/<%=@character.id%>' method='post'>
+        <input type="hidden" name="_method" value="patch">
         <label>Name</label>
-        <input type="text" name="name">
+        <input type="text" name="name" value="<%= @character.name %>">
         <label>Gender</label>
-        <select name="gender" id="gender">
-            <option value="none" selected disabled hidden>Select an Option</option> 
+        <select name="gender" id="gender" value="<%= @character.gender %>">
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Other">Other</option>
         </select>
         <label>Age</label>
-        <input type="integer" name="age">
+        <input type="integer" name="age" value="<%= @character.age %>">
         <label>Race</label>    
-        <select name="race" id="race">
-            <option value="none" selected disabled hidden>Select an Option</option> 
+        <select name="race" id="race" value="<%= @character.race %>">
             <option value="Android">Android</option>
             <option value="Human">Human</option>
             <option value="Kasatha">Kasatha</option>
@@ -23,8 +23,7 @@
             <option value="Ysoki">Ysoki</option>
         </select>
         <label>Theme</label>
-        <select name="theme" id="theme">
-            <option value="none" selected disabled hidden>Select an Option</option> 
+        <select name="theme" id="theme" value="<%= @character.theme %>">
             <option value="Themeless">Themeless</option>
             <option value="Ace Pilot">Ace Pilot</option>
             <option value="Bounty Hunter">Bounty Hunter</option>
@@ -37,8 +36,7 @@
             <option value="Xenoseeker">Xenoseeker</option>
         </select>
         <label>Class</label>
-        <select name="clas" id="clas">
-            <option value="none" selected disabled hidden>Select an Option</option> 
+        <select name="clas" id="clas" value="<%= @character.clas %>">
             <option value="Envoy">Envoy</option>
             <option value="Mechanic">Mechanic</option>
             <option value="Mystic">Mystic</option>
@@ -47,5 +45,5 @@
             <option value="Soldier">Soldier</option>
             <option value="Technomancer">Technomancer</option>
         </select>
-        <button type ="submit">Create Character</button>
+        <button type ="submit">Edit Character</button>
     </form>
