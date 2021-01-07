@@ -13,10 +13,16 @@
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
+
+  <div class="topnav">
+    <a href="/">Home</a>
+    <a href="/characters">Characters</a>
+    <a style="float:right" class="active" href="/signup">Login</a>
+    <a style="float:right" href="/signup">Search..</a>
+  </div>
+
   <body>
-    <div>
-      <div><a href="/">Home</a></div>
-      <div><a href="/characters">Characters</a></div>
+    
     <div class="wrapper">
 
         <%= yield %>

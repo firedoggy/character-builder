@@ -1,5 +1,6 @@
 <h1>Characters</h1>
+<h3><a href="/characters/new">Create a Character</a></h3>
 <% @characters.each do |character| %>
-    <h2><a href="/characters/<%= character.id %>"><%= character.name %></a></h2>
+    <h3><a href="/characters/<%= character.id %>"><%= character.name %></a></h3>
     <p><%= character.race %> <%= character.clas %></p>    
 <% end %>
