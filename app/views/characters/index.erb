@@ -1,5 +1,4 @@
 <h1>Characters</h1>
-
 <% @characters.each do |character| %>
     <h2><a href="/characters/<%= character.id %>"><%= character.name %></a></h2>
     <p><%= character.race %> <%= character.clas %></p>    

@@ -25,7 +25,7 @@ class CharactersController < ApplicationController
         #make a get request to '/characters'
 
         get '/characters' do
-            @characters = Character.all
+            @characters = Character.order(name: :asc)
             erb :'characters/index'
         end
 

@@ -5,9 +5,11 @@
     <p>Race: <%= @character.race %></p>
     <p>Theme: <%= @character.theme %></p>
     <p>Class: <%= @character.clas %></p>
+    
     <a href = "/characters/<%= @character.id %>/edit">
         <input type ="button" value="Edit">
     </a>
-    <a href = "/characters/<%= @character.id %>">
-        <input type ="button" value="Delete">
-    </a>
+    <form action= "/characters/<%= @character.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit">Delete</button>
+    </form>
