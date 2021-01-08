@@ -1,15 +1,27 @@
-<h1><%= @character.name %></h1>
-    <p>Name: <%= @character.name %></p>
-    <p>Age: <%= @character.age %></p>
-    <p>Gender: <%= @character.gender %></p>
-    <p>Race: <%= @character.race %></p>
-    <p>Theme: <%= @character.theme %></p>
-    <p>Class: <%= @character.clas %></p>
+<header>
+    <h1><%= @character.name %></h1>
+</header>
+
+<body>
+
+    <p> 
+        <strong>Name:</strong> <%= @character.name %><br>
+        <strong>Age:</strong> <%= @character.age %><br>
+        <strong>Gender:</strong> <%= @character.gender %><br>
+        <strong>Race:</strong> <%= @character.race %><br>
+        <strong>Theme:</strong> <%= @character.theme %><br>
+        <strong>Class:</strong> <%= @character.clas %>
+    </p>
     
-    <a href = "/characters/<%= @character.id %>/edit">
-        <input type ="button" value="Edit">
-    </a>
-    <form action= "/characters/<%= @character.id %>" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <button type="submit">Delete</button>
-    </form>
+    <%= if session[:user_id] == @character.user.id %> 
+        <form class="form-inline" action="/action_page.php">
+            <a href = "/characters/<%= @character.id %>/edit">
+                <input type ="button" value="Edit">
+            </a>
+            <form action= "/characters/<%= @character.id %>" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit">Delete</button>
+            </form>
+        </form>
+    <% end %>
+</body>

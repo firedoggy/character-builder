@@ -5,7 +5,11 @@ class CharactersController < ApplicationController
         #NEW
         #make a get request to '/characters/new'
         get '/characters/new' do
-            erb :'/characters/new'
+            if logged_in?
+                erb :'/characters/new'
+            else
+                redirect '/login'
+            end
         end
         #CREATE
         #make a post request to '/characters'
@@ -25,8 +29,8 @@ class CharactersController < ApplicationController
         #make a get request to '/characters'
 
         get '/characters' do
-            @characters = Character.order(name: :asc)
-            erb :'characters/index'
+                @characters = Character.order(name: :asc)
+                erb :'characters/index'
         end
 
         #SHOW
@@ -42,8 +46,12 @@ class CharactersController < ApplicationController
         #EDIT
         #make a get request to '/characters/:id/edit'
         get '/characters/:id/edit' do
-            @character = Character.find(params[:id])
-            erb :'/characters/edit'
+            if logged_in?
+                @character = Character.find(params[:id])
+                erb :'/characters/edit'
+            else
+                redirect '/login'
+            end
         end
 
         #UPDATE

@@ -1,6 +1,9 @@
 <h1>Characters</h1>
-<h3><a href="/characters/new">Create a Character</a></h3>
+<p><a href="/characters/new"><strong>Create a Character</strong></a></p><hr>
 <% @characters.each do |character| %>
-    <h3><a href="/characters/<%= character.id %>"><%= character.name %></a></h3>
-    <p><%= character.race %> <%= character.clas %></p>    
+    <p>
+        <a href="/characters/<%= character.id %>"><strong><%= character.name %></strong></a><br>
+        <%= character.race %> <%= character.clas %>
+    </p>
+    <hr>
 <% end %>
