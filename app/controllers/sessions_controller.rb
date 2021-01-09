@@ -4,19 +4,15 @@ class SessionsController < ApplicationController
        erb :'users/login' 
     end
 
-    post '/login' do        
-        if params["username"].empty? || params["password"].empty?
-            @error = "Username or password is empty."
-            erb :'users/login'
-
+    post '/login' do
+        @user = User.find_by(username: params["username"])
+        #binding.pry
+        if @user && @user.password == (params["password"])
+            session[:user_id] = @user.id
+            redirect '/characters'
         else
-            if user = User.find_by(username: params["username"], password: params["password"])
-                session[:user_id] = user.id
-                redirect '/characters'
-            else
-                @error = "Account not found"
-                erb :'users/login'
-            end
+            @error = "Account not found"
+            erb :'users/login'
         end
     end
 

@@ -3,11 +3,12 @@
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>CharacterBuilder</title>
+    <title>Character Builder</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -16,8 +17,12 @@
     <div class="topnav">
       <a href="/">Home</a>
       <a href="/characters">Characters</a>
-      <a style="float:right" class="active" href="/login">Login</a>
-      <a style="float:right" href="/signup">Search..</a>
+      <% if logged_in? %>
+        <a style="float:right" class="active" href="/logout">Logout</a>
+      <% else %>
+        <a style="float:right" class="active" href="/login">Login</a>
+      <% end %>
+      <a style="float:right" href="">Search..</a>
     </div>
   </head>
 

@@ -5,18 +5,16 @@ class CharactersController < ApplicationController
         #NEW
         #make a get request to '/characters/new'
         get '/characters/new' do
-            if logged_in?
-                erb :'/characters/new'
-            else
-                redirect '/login'
-            end
+            #binding.pry
+            require_login
+            erb :'/characters/new'
+            
         end
         #CREATE
         #make a post request to '/characters'
         post '/characters' do
-            character = Character.new(params)
-            if character.fullVariables  
-                character.save
+            character = current_user.characters.build(params)
+            if character.save
                 redirect '/characters'
             else
                 @error = "Data invalid. Please try again."
@@ -37,8 +35,13 @@ class CharactersController < ApplicationController
         #make a get request to '/characters/:id'
 
         get '/characters/:id' do
-            @character = Character.find(params[:id])
-            erb :'characters/show'
+            @character = Character.find_by(id: params[:id])
+            #binding.pry
+            if @character
+                erb :'characters/show'
+            else
+                redirect '/characters'
+            end
         end
 
     #UPDATE
@@ -46,12 +49,9 @@ class CharactersController < ApplicationController
         #EDIT
         #make a get request to '/characters/:id/edit'
         get '/characters/:id/edit' do
-            if logged_in?
-                @character = Character.find(params[:id])
-                erb :'/characters/edit'
-            else
-                redirect '/login'
-            end
+            require_login
+            @character = Character.find(params[:id])
+            erb :'/characters/edit'
         end
 
         #UPDATE
@@ -59,9 +59,8 @@ class CharactersController < ApplicationController
 
         patch '/characters/:id' do
             character = Character.find(params[:id])
-            if character.fullVariables
-                character.update(params["character"].to_h)
-                redirect '/characters'
+            if character.update(params["character"].to_h)
+                redirect '/characters#{params[:id]}'
             else
                 @error = "Data invalid. Please try again."
                 erb :'/characters/edit'

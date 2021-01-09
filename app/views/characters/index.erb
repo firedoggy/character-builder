@@ -1,5 +1,9 @@
 <h1>Characters</h1>
-<p><a href="/characters/new"><strong>Create a Character</strong></a></p><hr>
+
+<% if logged_in? %>
+    <p><a href="/characters/new"><strong>Create a Character</strong></a></p><hr>
+<% end %>
+
 <% @characters.each do |character| %>
     <p>
         <a href="/characters/<%= character.id %>"><strong><%= character.name %></strong></a><br>

@@ -1,6 +1,7 @@
-<p><%= @error %></p> 
+<p> <%= @error %> </p>
 <form action="/login" method="post">
-    <input type="text" name="username">
-    <input type="password" name="password">
+    <input type="text" id="username" name="username">
+    <input type="password" id="password" name="password">
     <input type="submit" value="Log in">
 </form>
+<p>Not a Member? <a href="/signup">Sign up now</a></p>
