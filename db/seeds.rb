@@ -13,6 +13,14 @@ Chclass.create(name: 'Solarian', class_skills: ['Acrobatics', 'Athletics', 'Dipl
 Chclass.create(name: 'Soldier', class_skills: ['Acrobatics', 'Athletics', 'Engineering', 'Intimidate', 'Medicine', 'Piloting', 'Profession', 'Survival'], proficiencies: ['Light armor', 'Heavy armor', 'Basic melee weapons', 'Advanced melee weapons', 'grenades', 'small arms', 'longarms', 'heavy weapons', 'sniper weapons'], hp: 7, sp: 7)
 Chclass.create(name: 'Technomancer', class_skills: ['Computers', 'Engineering', 'Life Science', 'Mysticism', 'Physical Science', 'Piloting', 'Profession', 'Sleight of Hand'], proficiencies: ['Light armor', 'Basic melee weapons', 'small arms'], hp: 5, sp: 5)
 
+Race.create(name: 'Android', hp: 4, speed:30, size: 'medium')
+Race.create(name: 'Human', hp: 4, speed:30, size: 'medium')
+Race.create(name: 'Kasatha', hp: 4, speed:30, size: 'medium')
+Race.create(name: 'Lashunta', hp: 4, speed:30, size: 'medium')
+Race.create(name: 'Shirren', hp: 6, speed:30, size: 'medium')
+Race.create(name: 'Vesk', hp: 6, speed:30, size: 'medium')
+Race.create(name: 'Android', hp: 2, speed:30, size: 'small')
+
 User.create(username: 'tommy', password: 'pass')
 User.create(username: 'sarah', password: 'pass')
 User.create(username: 'admin', password: 'pass')

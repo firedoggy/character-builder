@@ -19,13 +19,13 @@
         <input type="integer" name="character[age]" value="<%= @character.age %>" required>
         <label>Race</label>    
         <select name="character[race]" id="race" required>
-            <option value="Android">Android</option>
-            <option value="Human">Human</option>
-            <option value="Kasatha">Kasatha</option>
-            <option value="Lashunta">Lashunta</option>
-            <option value="Shirren">Shirren</option>
-            <option value="Vesk">Vesk</option>
-            <option value="Ysoki">Ysoki</option>
+            <% Race.all.each do |r| %>
+                <% if r.name == @character.race %>
+                    <option value=<% r.name %> selected><%= r.name %></option>
+                <% else %>
+                    <option value=<%= r.name %>><%= r.name %></option>
+                <% end %>
+            <% end %>    
         </select>
         <label>Theme</label>
         <select name="character[theme]" id="theme" required>
