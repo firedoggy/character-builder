@@ -6,9 +6,14 @@
         <input type="text" name="character[name]" value="<%= @character.name %>" required>
         <label>Gender</label>
         <select name="character[gender]" id="gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
+            <% genders = ["Male", "Female", "Other"] %>
+            <% genders.each do |g| %>
+                <% if g == @character.gender %>
+                    <option value=<%= g %> selected><%= g %></option>
+                <% else %>
+                    <option value=<%= g %>><%= g %></option>
+                <% end %>
+            <% end %>
         </select>
         <label>Age</label>
         <input type="integer" name="character[age]" value="<%= @character.age %>" required>
@@ -37,13 +42,13 @@
         </select>
         <label>Class</label>
         <select name="character[clas]" id="clas" required>
-            <option value="Envoy">Envoy</option>
-            <option value="Mechanic">Mechanic</option>
-            <option value="Mystic">Mystic</option>
-            <option value="Operative">Operative</option>
-            <option value="Solarian">Solarian</option>
-            <option value="Soldier">Soldier</option>
-            <option value="Technomancer">Technomancer</option>
+            <% Chclass.all.each do |c| %>
+                <% if c.name == @character.clas %>
+                    <option value=<% c.name %> selected><%= c.name %></option>
+                <% else %>
+                    <option value=<%= c.name %>><%= c.name %></option>
+                <% end %>
+            <% end %>    
         </select>
         <button type ="submit">Edit Character</button>
     </form>
