@@ -3,7 +3,7 @@
 	<%= @error %>
 </p>
 <div class="row">
-	<div class="column left">
+	<div class="column">
 		<p> <strong>Name:</strong>
             <%= @character.name %>
                 <br> <strong>Gender:</strong>
@@ -18,12 +18,13 @@
 								<%= @character.clas %>
 		</p>
 	</div>
-	<div class="column right">
-        <table style="width:100%">
-            <form action='/characters' method='post'>
+	<div class="column">
+        <table style="width:20%">
+            <form action='/characters/<%=@character.id%>' method='post'>
+                <input type="hidden" name="_method" value="patch">
                 <tr> 
                     <td><label>Name:</label></td>
-                    <td><input type="text" name="character[name]" value="Enter a Name" required></td>
+                    <td><input type="text" name="character[name]" value="<%= @character.name %>" required></td>
                 </tr>
                 <tr>         
                     <td><label>Gender:</label></td>
@@ -38,7 +39,7 @@
                 </tr>
                 <tr>        
                     <td><label>Age:</label></td>
-                    <td><input type="integer" name="character[age]" value="Enter an Age" required></td>
+                    <td><input type="integer" name="character[age]" value="<%= @character.age %>" required></td>
                 </tr>
                 <tr>  
                     <td><label>Race:</label></td>

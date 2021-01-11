@@ -1,17 +1,14 @@
 class CharactersController < ApplicationController
 
-    #CREATE
 
-        #NEW
-        #make a get request to '/characters/new'
         get '/characters/new' do
             #binding.pry
             require_login
             erb :'/characters/new'
             
         end
-        #CREATE
-        #make a post request to '/characters'
+
+        
         post '/characters' do
             character = Character.new(params["character"].to_h)
             character.user_id = current_user.id
@@ -23,18 +20,13 @@ class CharactersController < ApplicationController
                 erb :'/characters/new'
             end
         end
-    #READ
 
-        #INDEX
-        #make a get request to '/characters'
 
         get '/characters' do
                 @characters = Character.order(name: :asc)
                 erb :'characters/index'
         end
 
-        #SHOW
-        #make a get request to '/characters/:id'
 
         get '/characters/:id' do
             @character = Character.find_by(id: params[:id])
@@ -46,22 +38,16 @@ class CharactersController < ApplicationController
             end
         end
 
-    #UPDATE
 
-        #EDIT
-        #make a get request to '/characters/:id/edit'
         get '/characters/:id/edit' do
             require_login
             @character = Character.find_by(id: params[:id])
-            if @character && @character.user_id == current_user.id
-                erb :'characters/edit'
-            else
+            if @character.user_id != current_user.id
                 redirect '/characters'
             end
+            erb :'characters/edit'
         end
 
-        #UPDATE
-        #make a patch request to '/characters/:id'
 
         patch '/characters/:id' do
             @character = Character.find(params[:id])
@@ -73,10 +59,6 @@ class CharactersController < ApplicationController
             end
         end
 
-    #DESTROY
-
-        #DESTROY
-        #make a delete request to '/characters/:id' 
 
         delete '/characters/:id' do
             character = Character.find(params[:id])

@@ -172,19 +172,11 @@ text-decoration: none;
   box-sizing: border-box;
 }
 
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
+.inner {
+  display: inline-block;
 }
 
-.left {
-  width: 25%;
-}
 
-.right {
-  width: 75%;
-}
 
 .row:after {
   content: "";
