@@ -13,7 +13,9 @@ class CharactersController < ApplicationController
         #CREATE
         #make a post request to '/characters'
         post '/characters' do
-            character = current_user.characters.build(params)
+            character = Character.new(params["character"].to_h)
+            character.user_id = current_user.id
+            
             if character.save
                 redirect '/characters'
             else
@@ -50,17 +52,21 @@ class CharactersController < ApplicationController
         #make a get request to '/characters/:id/edit'
         get '/characters/:id/edit' do
             require_login
-            @character = Character.find(params[:id])
-            erb :'/characters/edit'
+            @character = Character.find_by(id: params[:id])
+            if @character && @character.user_id == current_user.id
+                erb :'characters/edit'
+            else
+                redirect '/characters'
+            end
         end
 
         #UPDATE
         #make a patch request to '/characters/:id'
 
         patch '/characters/:id' do
-            character = Character.find(params[:id])
-            if character.update(params["character"].to_h)
-                redirect '/characters#{params[:id]}'
+            @character = Character.find(params[:id])
+            if @character.update(params["character"].to_h)
+                redirect "/characters/#{params[:id]}"
             else
                 @error = "Data invalid. Please try again."
                 erb :'/characters/edit'

@@ -1,4 +1,4 @@
-class Race < ActiveRecord::Base
+class Theme < ActiveRecord::Base
     belongs_to :character
     
 end

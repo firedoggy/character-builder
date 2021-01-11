@@ -3,7 +3,6 @@
 </header>
 
 <body>
-
     <p> 
         <strong>Name:</strong> <%= @character.name %><br>
         <strong>Age:</strong> <%= @character.age %><br>
@@ -14,7 +13,7 @@
     </p>
     
     <% if @character.user && @character.user == current_user %> 
-        <form class="form-inline" action="/action_page.php">
+        
             <a href = "/characters/<%= @character.id %>/edit">
                 <input type ="button" value="Edit">
             </a>
@@ -22,6 +21,6 @@
                 <input type="hidden" name="_method" value="delete">
                 <button type="submit">Delete</button>
             </form>
-        </form>
+        
     <% end %>
 </body>

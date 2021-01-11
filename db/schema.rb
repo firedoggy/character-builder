@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210110192251) do
+ActiveRecord::Schema.define(version: 20210110193838) do
 
   create_table "characters", force: :cascade do |t|
     t.string  "name"
@@ -36,6 +36,11 @@ ActiveRecord::Schema.define(version: 20210110192251) do
     t.integer "hp"
     t.integer "speed"
     t.string  "size"
+  end
+
+  create_table "themes", force: :cascade do |t|
+    t.string "name"
+    t.text   "description"
   end
 
   create_table "user_characters", force: :cascade do |t|
