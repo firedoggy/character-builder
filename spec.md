@@ -1,6 +1,6 @@
- ✅Build an MVC (Links to an external site.) Sinatra application.
-    
- ✅Use ActiveRecord (Links to an external site.) with Sinatra.
+ ✅Build an MVC Sinatra application.
+    Our application has models, controllers, and views that call on each other to create an interactable web application
+ ✅Use ActiveRecord  with Sinatra.
     All of our models inherit from ActiveRecord
  ✅Use multiple models.
     Application includes models for users, characters, classes, themes, and races
@@ -17,4 +17,4 @@
  ✅Validate user input so bad data cannot be persisted to the database.
     User and Character models validate the presence of all attributes through "validates :'attribute', presence: true"
 
-BONUS: Display validation failures to user with error messages (Links to an external site.). (This is an optional feature, challenge yourself and give it a shot!)
+BONUS: Display validation failures to user with error messages. (This is an optional feature, challenge yourself and give it a shot!)
