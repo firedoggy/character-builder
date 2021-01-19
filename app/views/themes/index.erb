@@ -1,0 +1,6 @@
+<h1>Themes</h1>
+
+
+<% Theme.all.order(name: :asc).each do |t| %>
+    <p><a href="themes/<%= t.id %>"><strong><%= t.name %></strong></a></p>
+<% end %>

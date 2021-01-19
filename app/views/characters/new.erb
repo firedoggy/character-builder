@@ -8,13 +8,14 @@
         <tr>         
             <td><p><strong>Gender:</strong></p></td>
             <td><select name="character[gender]" id="gender" required>
-                    <% genders = ["Male", "Female", "Other"] %>
-                        <% genders.each do |g| %>
-                            <option value=<%=g %>>
-                                <%= g %>
-                            </option>
-                            <% end %>
-                </select></td>
+                <% genders = ["Male", "Female", "Other"] %>
+                <% genders.each do |g| %>
+                    <option value=<%=g %>>
+                        <%= g %>
+                    </option>
+                    <% end %>
+                <option selected disabled hidden style='display: none' value=''></option>
+            </select></td>
         </tr>
         <tr>        
             <td><p><strong>Age:</strong></p></td>
@@ -28,6 +29,7 @@
                         <%= r.name %>
                     </option>
                     <% end %>
+                <option selected disabled hidden style='display: none' value=''></option>
             </select></td>
         </tr>
         <tr>   
@@ -38,6 +40,7 @@
                         <%= t.name %>
                     </option>
                     <% end %>
+                <option selected disabled hidden style='display: none' value=''></option>
             </select></td>
         </tr>
         <tr>  
@@ -48,6 +51,7 @@
                         <%= c.name %>
                     </option>
                     <% end %>
+                <option selected disabled hidden style='display: none' value=''></option>
             </select></td>
         </tr>
         <tr>  

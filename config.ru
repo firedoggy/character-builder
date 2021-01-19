@@ -8,4 +8,7 @@ use Rack::MethodOverride
 use SessionsController
 use UsersController
 use CharactersController
+use ChclassesController
+use RacesController
+use ThemesController
 run ApplicationController

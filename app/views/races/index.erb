@@ -1,0 +1,6 @@
+<h1>Races</h1>
+
+
+<% Race.all.order(name: :asc).each do |r| %>
+    <p><a href="/races/<%= r.id %>"><strong><%= r.name %></strong></a></p>
+<% end %>

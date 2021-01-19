@@ -2,7 +2,6 @@ class CharactersController < ApplicationController
 
 
         get '/characters/new' do
-            #binding.pry
             require_login
             erb :'/characters/new'
             
@@ -30,7 +29,6 @@ class CharactersController < ApplicationController
 
         get '/characters/:id' do
             @character = Character.find_by(id: params[:id])
-            #binding.pry
             if @character
                 erb :'characters/show'
             else

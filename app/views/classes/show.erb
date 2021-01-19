@@ -1,0 +1,12 @@
+<header>
+    <h1><%= @class.name %></h1>
+</header>
+
+<body>
+    <p> 
+        <strong>Class Skills:</strong> <%= @class.class_skills.join(", ") %><br>
+        <strong>Proficiencies:</strong> <%= @class.proficiencies.join(", ") %><br>
+        <strong>HP:</strong> <%= @class.hp %><br>
+        <strong>SP:</strong> <%= @class.sp %><br>
+    </p>
+</body>
