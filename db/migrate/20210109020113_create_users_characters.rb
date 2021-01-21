@@ -1,4 +1,4 @@
-class CreateUserCharacters < ActiveRecord::Migration
+class CreateUsersCharacters < ActiveRecord::Migration
   def change
     create_table :user_characters do |t|
       t.integer :user_id

@@ -1,10 +1,8 @@
 class CharactersController < ApplicationController
 
-
         get '/characters/new' do
             require_login
             erb :'/characters/new'
-            
         end
 
         

@@ -22,7 +22,6 @@ class ApplicationController < Sinatra::Base
     redirect '/'
   end
 
-
   def current_user
     User.find_by(id: session[:user_id])
   end

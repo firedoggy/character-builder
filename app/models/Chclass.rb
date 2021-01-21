@@ -1,5 +1,5 @@
 class Chclass < ActiveRecord::Base
-    belongs_to :character
+    has_and_belongs_to_many :character
     serialize :class_skills
     serialize :proficiencies
     

@@ -1,4 +1,4 @@
 class Theme < ActiveRecord::Base
-    belongs_to :character
+    has_and_belongs_to_many :character
     
 end
